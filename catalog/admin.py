@@ -15,11 +15,14 @@ class BookInline(admin.TabularInline):
 
 
 class AuthorAdmin(admin.ModelAdmin):
+    #Show which fields to display on admin site
     list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
 
+    # Show which fields to display in detail view, also showing how to lay them out
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
     inlines = [BookInline]
 
+# Tabular inline view class to be displayed inside Book detail view on admin site
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
     extra = 0
