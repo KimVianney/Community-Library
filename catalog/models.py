@@ -72,6 +72,7 @@ class Author(models.Model):
     class Meta:
         ordering = ['last_name', 'first_name']
 
+    #reverse() - 'reverses' urlmapper to create a URL in right format
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
         return reverse('author-detail', args=[str(self.id)])
